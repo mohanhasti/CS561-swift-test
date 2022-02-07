@@ -1,5 +1,19 @@
+
 import XCTest
 import MyLibrary
+
+//commit 1 
+public class MyLibrary {
+    private let weatherService: WeatherService
+
+    /// The class's initializer.
+    ///
+    /// Whenever we call the `MyLibrary()` constructor to instantiate a `MyLibrary` instance,
+    /// the runtime then calls this initializer.  The constructor returns after the initializer returns.
+    public init(weatherService: WeatherService? = nil) {
+        self.weatherService = weatherService ?? WeatherServiceImpl()
+    }
+
 
 final class MyLibraryTests: XCTestCase {
     func testHello() throws {

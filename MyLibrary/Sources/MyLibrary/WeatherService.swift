@@ -1,3 +1,4 @@
+
 public class MyLibrary {
     private let weatherService: WeatherService
 
@@ -8,6 +9,17 @@ public class MyLibrary {
     public init(weatherService: WeatherService? = nil) {
         self.weatherService = weatherService ?? WeatherServiceImpl()
     }
+
+//commit 2
+import Alamofire
+
+public protocol WeatherService {
+    func getTemperature(completion: @escaping (_ response: Result<Int /* Temperature */, Error>) -> Void)
+}
+
+class WeatherServiceImpl: WeatherService {
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=<INSERT YOUR API KEY HERE>"
+
 
     public func isLucky(_ number: Int, completion: @escaping (Bool?) -> Void) {
         // Check the simple case first: 3, 5 and 8 are automatically lucky.
