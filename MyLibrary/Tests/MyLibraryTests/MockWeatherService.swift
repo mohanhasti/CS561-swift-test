@@ -1,4 +1,3 @@
-//commit 3
 import Alamofire
 import MyLibrary
 
@@ -25,5 +24,9 @@ class MockWeatherService: WeatherService {
             let error404 = AFError.explicitlyCancelled
             completion(.failure(error404))
         }
+    }
+
+    func getMessage(completion: @escaping (_ response: Result<String /* Welcome */, Error>) -> Void) {
+        completion(.success("Welcome to MockPage!"))
     }
 }
